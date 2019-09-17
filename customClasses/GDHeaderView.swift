@@ -19,6 +19,7 @@ class GDHeaderView:UIView {
         if frame == .zero {
             translatesAutoresizingMaskIntoConstraints = false
         }
+        
         self.titleLabel.text = title
         self.subtitleLabel.text = subtitle
         
@@ -29,14 +30,14 @@ class GDHeaderView:UIView {
         bg.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
 
         addSubview(titleLabel)
-        titleLabel.centerYAnchor.constraint(equalTo: bg.centerYAnchor).isActive = true
-        titleLabel.leftAnchor.constraint(equalTo: bg.leftAnchor).isActive = true
-        titleLabel.rightAnchor.constraint(equalTo: bg.centerXAnchor).isActive = true
+        titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        titleLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 15).isActive = true
+        titleLabel.rightAnchor.constraint(equalTo: centerXAnchor).isActive = true
         
         addSubview(subtitleLabel)
         subtitleLabel.centerYAnchor.constraint(equalTo: titleLabel.bottomAnchor).isActive = true
-        subtitleLabel.leftAnchor.constraint(equalTo: bg.leftAnchor).isActive = true
-        subtitleLabel.rightAnchor.constraint(equalTo: bg.centerXAnchor).isActive = true
+        subtitleLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 15).isActive = true
+        subtitleLabel.rightAnchor.constraint(equalTo: centerXAnchor).isActive = true
         print ("Ran constraints in header view")
     }
 
