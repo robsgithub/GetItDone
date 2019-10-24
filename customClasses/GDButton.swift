@@ -11,19 +11,43 @@ import UIKit
 class GDButton:UIButton{
     
     var title:String!
+    var type:ButtonOptions!
     
-    init(title:String = "Button text"){
-        super.init(frame:.zero)
-            self.setTitle(title, for: .normal)
-            self.layer.cornerRadius = 14
-            self.backgroundColor = .white
-            self.setTitleColor(.black, for: .normal)
+    init(title:String = "Button text",frame:CGRect = .zero, type:ButtonOptions = .roundedText){
+        super.init(frame:frame)
+        if frame == .zero {
             self.translatesAutoresizingMaskIntoConstraints = false
-            if let titleLabel = self.titleLabel{
-                titleLabel.font = UIFont(name:"Raleway-v4020-Regular", size: 16)
-            }
+        }
+        self.title = title
+        self.type = type
+        self.phaseTwo()
+    }
+    
+    func phaseTwo(){
+        self.setTitle(self.title, for: .normal)
+        if let titleLabel = self.titleLabel{
+            titleLabel.font = UIFont(name:"Raleway-v4020-Regular", size: 16)
+        }
+        
+        switch self.type {
+            case ButtonOptions.roundedText:
+                self.roundedText()
+            case ButtonOptions.squareIcon:
+                self.squareIcon()
+            default: break;
+        }
+    }
+    
+    func squareIcon() {
+        
+        }
+    func roundedText() {
+        self.setTitleColor(.black, for: .normal)
+        self.layer.cornerRadius = 20
+        self.backgroundColor = .white
 
     }
+        
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

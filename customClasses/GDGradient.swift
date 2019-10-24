@@ -10,10 +10,12 @@ import UIKit
 
 class GDGradient:UIView{
     
-    override init(frame: CGRect) {
+    override init(frame: CGRect = .zero) {
         super.init(frame: frame)
+        if frame == .zero {
+            translatesAutoresizingMaskIntoConstraints = false
+        }
         
-        self.translatesAutoresizingMaskIntoConstraints = false
         if let layer = self.layer as? CAGradientLayer {
             layer.colors = [UIColor.blue.cgColor, UIColor.white.cgColor]
             layer.locations = [0.0, 1.4]

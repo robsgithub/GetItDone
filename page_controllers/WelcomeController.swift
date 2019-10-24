@@ -20,7 +20,7 @@ class WelcomeController: UIViewController {
         return view
     }()
 
-    let nextButton = GDButton(title: "Start Winning")
+    let nextButton = GDButton(title: "Start Winning", frame: .zero, type: .roundedText)
     
 //    let titleLabel:GDLabel = {
 //        let label = GDLabel()
